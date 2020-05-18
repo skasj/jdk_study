@@ -7,3 +7,5 @@
 *.iml
 out
 gen
+test/
+TIJ4-code/
