@@ -36,7 +36,7 @@ extends AbstractMap<Integer,String> {
   public Set<Map.Entry<Integer,String>> entrySet() {
     // LinkedHashSet retains initialization order:
     Set<Map.Entry<Integer,String>> entries =
-      new LinkedHashSet<>();
+      new LinkedHashSet<Map.Entry<Integer,String>>();
     for(int i = 0; i < size; i++)
       entries.add(new Entry(i));
     return entries;
