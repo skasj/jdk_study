@@ -7,6 +7,7 @@ import java.util.*;
 
 public class DirList2 {
   public static FilenameFilter filter(final String regex) {
+    // 匿名内部类的入参必须是final，这样他才能够使用来自该类范围之外的对象。String对象默认是final的，所以可以去掉这个final修饰符
     // Creation of anonymous inner class:
     return new FilenameFilter() {
       private Pattern pattern = Pattern.compile(regex);
@@ -16,7 +17,7 @@ public class DirList2 {
     }; // End of anonymous inner class
   }
   public static void main(String[] args) {
-    File path = new File(".");
+    File path = new File("./src/io/");
     String[] list;
     if(args.length == 0)
       list = path.list();
