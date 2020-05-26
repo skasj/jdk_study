@@ -131,7 +131,7 @@ public class ListPerformance {
         List<Test<List<Integer>>> tests) {
       super(container, tests);
     }
-    // Fill to the appropriate size before each test:
+    // Fill to the appropriate size before each Test:
     @Override protected List<Integer> initialize(int size){
       container.clear();
       container.addAll(new CountingIntegerList(size));
@@ -149,7 +149,7 @@ public class ListPerformance {
     // Can only do these two tests on an array:
     Tester<List<Integer>> arrayTest =
       new Tester<List<Integer>>(null, tests.subList(1, 3)){
-        // This will be called before each test. It
+        // This will be called before each Test. It
         // produces a non-resizeable array-backed list:
         @Override protected
         List<Integer> initialize(int size) {

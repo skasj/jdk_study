@@ -55,7 +55,7 @@ public class SynchronizedMethodParamTest {
     public static void main(String[] args) {
         int n = 100;
         ExecutorService executors = Executors.newFixedThreadPool(n);
-        Study study = new Study("test");
+        Study study = new Study("Test");
         while (n>1){
             executors.execute(new ChangeName(study,n));
             n--;
