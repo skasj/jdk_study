@@ -1,9 +1,9 @@
-package holding;
+package my;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class Test implements Runnable {
+public class ReentrantLockTest implements Runnable {
 
     private static ReentrantLock lock = new ReentrantLock();
     private static Condition condition = lock.newCondition();
@@ -22,7 +22,7 @@ public class Test implements Runnable {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        Test test = new Test();
+        ReentrantLockTest test = new ReentrantLockTest();
         Thread thread = new Thread(test);
         thread.setName("T1");
         thread.start();
