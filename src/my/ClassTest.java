@@ -76,5 +76,15 @@ public class ClassTest {
         System.out.println(classTest.c.getClass().getEnclosingClass());
         // Local class with Class = class my.ClassTest
 
+
+        System.out.print("Local class with getProtectionDomain = ");
+        System.out.println(cls.getProtectionDomain().getCodeSource().getLocation());
+        System.out.println(cls.getProtectionDomain().getPermissions().isReadOnly());
+        System.out.println(cls.getProtectionDomain().getClassLoader());
+
+        // 获取断言状态
+        System.out.print("Local class with desiredAssertionStatus = ");
+        System.out.println(cls.desiredAssertionStatus());
+
     }
 }
