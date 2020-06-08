@@ -20,7 +20,7 @@ public class AtUnitExample1 {
   @Test boolean failureTest() { return false; }
   @Test boolean anotherDisappointment() { return false; }
   public static void main(String[] args) throws Exception {
-      String path = new AtUnitExample1().getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
+      String path = AtUnitExample1.class.getProtectionDomain().getCodeSource().getLocation().getPath();
       OSExecute.command(
       "java -cp $CLASS_PATH;"+ path +";"+ path+"lib/ net.mindview.atunit.AtUnit out/production/jdk_study/annotations/AtUnitExample1");
   }
