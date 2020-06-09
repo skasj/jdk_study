@@ -3,7 +3,7 @@ package concurrency;//: concurrency/EvenGenerator.java
 
 public class EvenGenerator extends IntGenerator {
   private int currentEvenValue = 0;
-  public int next() {
+  public synchronized int next() {
     ++currentEvenValue; // Danger point here!
     Thread.yield();
     ++currentEvenValue;
