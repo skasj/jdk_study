@@ -3,11 +3,19 @@ package concurrency;//: concurrency/EvenGenerator.java
 
 public class EvenGenerator extends IntGenerator {
   private int currentEvenValue = 0;
+
   public synchronized int next() {
-    ++currentEvenValue; // Danger point here!
-    Thread.yield();
-    ++currentEvenValue;
-    return currentEvenValue;
+      try {
+          synchronized (this){
+              ++currentEvenValue; // Danger point here!
+              Thread.yield();
+              ++currentEvenValue;
+              throw new RuntimeException("test");
+          }
+      } catch (Exception e){
+          System.out.println(e.getMessage());
+      }
+      return currentEvenValue;
   }
   public static void main(String[] args) {
     EvenChecker.test(new EvenGenerator());
