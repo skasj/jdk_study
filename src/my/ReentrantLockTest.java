@@ -11,13 +11,16 @@ public class ReentrantLockTest implements Runnable {
     @Override
     public void run() {
         try {
+            System.out.println(Thread.currentThread() + "加锁");
             lock.lock();
+            System.out.println(Thread.currentThread() + "加锁成功");
             condition.await();
             System.out.println("满足条件" + Thread.currentThread());
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
             lock.unlock();
+            System.out.println(Thread.currentThread() + "解锁");
         }
     }
 
@@ -31,5 +34,6 @@ public class ReentrantLockTest implements Runnable {
         lock.lock();
         condition.signal();
         lock.unlock();
+        System.out.println(Thread.currentThread() + "解锁");
     }
 }
